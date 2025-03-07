@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Just For You ❤️</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Just For You ❤️</h1>
+            <p>A little something to brighten your day</p>
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <h2>Hey Cantik! 💕</h2>
+                <p>
+                    Aku tau kamu sedang ada di masa masa sulit, tapi aku selalu
+                    di sini untuk kamu. Aku udah siapin beberapa hal khusus buat
+                    kamu, semoga kamu suka😊.
+                </p>
+                <p>Complete all three missions to unlock surprise gifts! 🎁</p>
+
+                <div class="progress-bar">
+                    <div class="progress" id="overall-progress"></div>
+                </div>
+                <p id="progress-text">Progress: 0/3 missions complete</p>
+            </div>
+
+            <div class="card">
+                <h2 class="mission-title">Mission 1: Breathing Exercise</h2>
+                <p>Take a moment to breathe and relax with me.</p>
+                <button id="breathing-btn">Start Exercise</button>
+                <div class="progress-bar">
+                    <div class="progress" id="breathing-progress"></div>
+                </div>
+                <p id="breathing-status">Status: Not started</p>
+            </div>
+
+            <div class="card">
+                <h2 class="mission-title">Mission 2: Memory Match</h2>
+                <p>
+                    A fun little game to exercise your mind. Find all the
+                    matching pairs!
+                </p>
+                <button id="memory-btn">Play Game</button>
+                <div class="progress-bar">
+                    <div class="progress" id="memory-progress"></div>
+                </div>
+                <p id="memory-status">Status: Not started</p>
+            </div>
+
+            <div class="card">
+                <h2 class="mission-title">Mission 3: Funny Media</h2>
+                <p>Enjoy some funny photos and videos to lighten your mood!</p>
+                <button id="funny-media-btn">Start Fun</button>
+                <div class="progress-bar">
+                    <div class="progress" id="funnyMedia-progress"></div>
+                </div>
+                <p id="funnyMedia-status">Status: Not started</p>
+            </div>
+
+            <div class="card hidden" id="rewards-card">
+                <h2>🎉 All Missions Complete! 🎉</h2>
+                <p>You did it! Thank you for taking some time for yourself.</p>
+                <p>Here are your special rewards:</p>
+                <button id="gift-btn">Open Gifts</button>
+            </div>
+        </div>
+
+        <!-- Breathing Exercise Modal -->
+        <div class="modal hidden" id="breathing-modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-breathing">&times;</span>
+                <div class="breathing-container">
+                    <h2>Breathe with me</h2>
+                    <p>
+                        Follow the circle. Breathe in as it grows, and out as it
+                        shrinks.
+                    </p>
+                    <div class="breathing-circle" id="breathing-circle">
+                        <span id="breathing-text">Ready?</span>
+                    </div>
+                    <p id="breathing-instruction">
+                        Complete 3 full breaths to finish this exercise.
+                    </p>
+                    <button id="start-breathing">Begin</button>
+                    <button id="complete-breathing" class="hidden">
+                        Complete Exercise
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Game Modal -->
+        <div class="modal hidden" id="memory-modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-memory">&times;</span>
+                <div class="memory-container">
+                    <h2>Memory Match</h2>
+                    <p>Find all the matching pairs of cute emojis!</p>
+                    <div class="memory-game" id="memory-game"></div>
+                    <p id="memory-instruction">Matches Found: 0/3</p>
+                    <button id="complete-memory" class="hidden">
+                        Complete Game
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Funny Media Modal -->
+        <div class="modal hidden" id="funny-media-modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-funny-media">&times;</span>
+                <div class="funny-media-container">
+                    <h2>Funny Media</h2>
+                    <p>Enjoy these funny photos and videos!</p>
+                    <div id="media-content">
+                        <!-- Media will be dynamically inserted here -->
+                    </div>
+                    <button id="next-media">Next</button>
+                    <button id="complete-funny-media" class="hidden">
+                        Complete Fun
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gift Modal -->
+        <div class="modal hidden" id="gift-modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-gift">&times;</span>
+                <div class="gift-container">
+                    <h2>Your Special Gifts</h2>
+                    <p>Click each gift box to reveal your surprise!</p>
+
+                    <div id="gift-box-1" class="gift-box"></div>
+                    <div id="gift-link-1" class="hidden">
+                        <p>Here's something special for you!</p>
+                        <a
+                            href="https://app.gopay.co.id/NF8p/q9biahj2"
+                            class="reward-link"
+                            target="_blank"
+                            >Claim Gift #1</a
+                        >
+                    </div>
+
+                    <div id="gift-box-2" class="gift-box hidden"></div>
+                    <div id="gift-link-2" class="hidden">
+                        <p>Another surprise just for you!</p>
+                        <a
+                            href="https://app.gopay.co.id/NF8p/q9biahj2"
+                            class="reward-link"
+                            target="_blank"
+                            >Claim Gift #2</a
+                        >
+                    </div>
+
+                    <div id="gift-box-3" class="gift-box hidden"></div>
+                    <div id="gift-link-3" class="hidden">
+                        <p>One more thing to make you smile!</p>
+                        <a
+                            href="https://app.gopay.co.id/NF8p/q9biahj2"
+                            class="reward-link"
+                            target="_blank"
+                            >Claim Gift #3</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
